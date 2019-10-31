@@ -16,6 +16,8 @@ import org.springframework.context.annotation.Profile;
 
 import java.io.ByteArrayInputStream;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 /**
  * Defines the configuration we'll use for a Hazelcast cluster member (e.g., a server member).
  */
@@ -78,7 +80,7 @@ public class HazelcastConfiguration {
         if (serverProperties.getXmlConfig() == null) {
             config = new Config();
         } else {
-            XmlConfigBuilder configBuilder = new XmlConfigBuilder(new ByteArrayInputStream(serverProperties.getXmlConfig().getBytes()));
+            XmlConfigBuilder configBuilder = new XmlConfigBuilder(new ByteArrayInputStream(serverProperties.getXmlConfig().getBytes(UTF_8)));
             config = configBuilder.build();
         }
         
