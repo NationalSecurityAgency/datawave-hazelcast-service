@@ -6,13 +6,15 @@ import com.hazelcast.client.config.XmlClientConfigBuilder;
 
 import java.io.ByteArrayInputStream;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class HazelcastBaseClientConfiguration {
     public ClientConfig createClientConfig(HazelcastClientProperties clientProperties) {
         ClientConfig clientConfig;
         if (clientProperties.getXmlConfig() == null) {
             clientConfig = new ClientConfig();
         } else {
-            XmlClientConfigBuilder xmlBuilder = new XmlClientConfigBuilder(new ByteArrayInputStream(clientProperties.getXmlConfig().getBytes()));
+            XmlClientConfigBuilder xmlBuilder = new XmlClientConfigBuilder(new ByteArrayInputStream(clientProperties.getXmlConfig().getBytes(UTF_8)));
             clientConfig = xmlBuilder.build();
         }
         
