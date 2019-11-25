@@ -17,7 +17,7 @@
     </scm>
     <properties>
         <version.hazelcast-kubernetes>1.4</version.hazelcast-kubernetes>
-        <version.microservice.hazelcast>1.5</version.microservice.hazelcast>
+        <version.microservice.hazelcast>1.6-SNAPSHOT</version.microservice.hazelcast>
     </properties>
     <dependencyManagement>
         <dependencies>
