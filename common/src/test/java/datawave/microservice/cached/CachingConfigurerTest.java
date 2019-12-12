@@ -1,8 +1,7 @@
 package datawave.microservice.cached;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.cache.CacheType;
 import org.springframework.boot.test.autoconfigure.core.AutoConfigureCache;
@@ -18,16 +17,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@RunWith(SpringRunner.class)
 @DirtiesContext
 @AutoConfigureCache(cacheProvider = CacheType.SIMPLE)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = CachingConfigurerTest.CachingConfiguration.class)
@@ -40,7 +37,7 @@ public class CachingConfigurerTest {
     @Autowired
     private TestCache testCache;
     
-    @Before
+    @BeforeEach
     public void setup() {
         TestCache.putError = false;
         TestCache.evictError = false;
@@ -60,7 +57,7 @@ public class CachingConfigurerTest {
         } catch (RuntimeException e) {
             assertEquals("Simulated error for testing.", e.getMessage());
         }
-        assertTrue("Cache should have been cleared after a get error, but it wasn't.", testCache.getNativeCache().isEmpty());
+        assertTrue(testCache.getNativeCache().isEmpty(), "Cache should have been cleared after a get error, but it wasn't.");
     }
     
     @Test
@@ -70,7 +67,7 @@ public class CachingConfigurerTest {
         Object response = testService.get("putFailed");
         assertEquals("putFailed", response);
         
-        assertNull("Object should not have been cached", testCache.get("putFailed"));
+        assertNull(testCache.get("putFailed"), "Object should not have been cached");
     }
     
     @Test

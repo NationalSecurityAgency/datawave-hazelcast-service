@@ -4,9 +4,8 @@ import com.hazelcast.config.Config;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import datawave.autoconfigure.DatawaveCacheAutoConfiguration;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.cache.CacheType;
@@ -17,14 +16,12 @@ import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
 @DirtiesContext
 @AutoConfigureCache(cacheProvider = CacheType.HAZELCAST)
 @ImportAutoConfiguration(DatawaveCacheAutoConfiguration.class)
@@ -40,7 +37,7 @@ public class HazelcastCacheInspectorTest {
     
     private Cache cache;
     
-    @Before
+    @BeforeEach
     public void setup() {
         cache = cacheManager.getCache(CACHE_NAME);
         cache.clear();
@@ -94,6 +91,8 @@ public class HazelcastCacheInspectorTest {
         @Bean
         public HazelcastInstance hazelcastInstance() {
             Config config = new Config();
+            config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(false);
+            config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
             return Hazelcast.newHazelcastInstance(config);
         }
     }
