@@ -1,5 +1,7 @@
 # Hazelcast Service
 
+[![Apache License][li]][ll] ![Build Status](https://github.com/NationalSecurityAgency/datawave-hazelcast-service/workflows/Tests/badge.svg)
+
 The Hazelcast service is an implementation of a distributed cache using
 [Hazelcast In-Memory Data Grid](https://hazelcast.com/products/imdg/).
 This service doesn't present a user-accessible endpoint, but rather is
@@ -73,3 +75,6 @@ and can be used as a normal Spring Boot cache.
 [getting-started]:https://github.com/NationalSecurityAgency/datawave-microservices-root/blob/master/README.md#getting-started
 [pki-dir]:https://github.com/NationalSecurityAgency/datawave-spring-boot-starter/blob/master/src/main/resources/pki
 [cache-dev-yml]:https://github.com/NationalSecurityAgency/datawave-microservices-root/blob/master/sample_configuration/cache-dev.yml.example
+
+[li]: http://img.shields.io/badge/license-ASL-blue.svg
+[ll]: https://www.apache.org/licenses/LICENSE-2.0
