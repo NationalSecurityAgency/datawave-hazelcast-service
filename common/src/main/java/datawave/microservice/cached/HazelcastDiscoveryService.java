@@ -1,6 +1,6 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.nio.Address;
+import com.hazelcast.cluster.Address;
 import com.hazelcast.spi.discovery.DiscoveryNode;
 import com.hazelcast.spi.discovery.SimpleDiscoveryNode;
 import com.hazelcast.spi.discovery.integration.DiscoveryService;
@@ -48,7 +48,7 @@ public class HazelcastDiscoveryService implements DiscoveryService {
     }
     
     @Override
-    public Map<String,Object> discoverLocalMetadata() {
+    public Map<String,String> discoverLocalMetadata() {
         // Not used
         return new HashMap<>();
     }

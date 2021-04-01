@@ -11,7 +11,7 @@ import org.springframework.cloud.commons.util.InetUtilsProperties;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-import static com.hazelcast.util.EmptyStatement.ignore;
+import static com.hazelcast.internal.util.EmptyStatement.ignore;
 
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "datawave.microservice", exclude = {SecurityAutoConfiguration.class, ManagementWebSecurityAutoConfiguration.class})

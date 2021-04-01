@@ -35,7 +35,6 @@ public class HazelcastK8sClientAutoConfiguration extends HazelcastBaseClientConf
         if (!clientProperties.isSkipDiscoveryConfiguration()) {
             // Set up Kubernetes discovery of cluster members.
             clientConfig.setProperty("hazelcast.discovery.enabled", Boolean.TRUE.toString());
-            clientConfig.getNetworkConfig().setConnectionAttemptLimit(120);
             DiscoveryStrategyConfig discoveryStrategyConfig = new DiscoveryStrategyConfig(new HazelcastKubernetesDiscoveryStrategyFactory());
             discoveryStrategyConfig.addProperty(KubernetesProperties.SERVICE_DNS.key(), clientProperties.getK8s().getServiceDnsName());
             discoveryStrategyConfig.addProperty(KubernetesProperties.SERVICE_DNS_TIMEOUT.key(),

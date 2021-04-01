@@ -91,7 +91,7 @@ public class HazelcastConfiguration {
         
         // Set up some default configuration. Do this after we read the XML configuration (which is really intended just to be cache configurations).
         if (!serverProperties.isSkipDefaultConfiguration()) {
-            config.getGroupConfig().setName(clusterName); // Set the cluster name
+            config.setClusterName(clusterName); // Set the cluster name
             config.setProperty("hazelcast.logging.type", "slf4j"); // Override the default log handler
             config.setProperty("hazelcast.rest.enabled", Boolean.TRUE.toString()); // Enable the REST endpoints so we can test/debug on them
             config.setProperty("hazelcast.phone.home.enabled", Boolean.FALSE.toString()); // Don't try to send stats back to Hazelcast

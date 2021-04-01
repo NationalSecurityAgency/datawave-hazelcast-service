@@ -28,7 +28,7 @@ public class HazelcastBaseClientConfiguration {
             clientConfig.getConnectionStrategyConfig().setReconnectMode(ClientConnectionStrategyConfig.ReconnectMode.ASYNC);
             
             // Set our cluster name
-            clientConfig.getGroupConfig().setName(clientProperties.getClusterName());
+            clientConfig.setClusterName(clientProperties.getClusterName());
         }
         
         return clientConfig;

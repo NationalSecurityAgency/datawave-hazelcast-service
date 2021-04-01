@@ -1,6 +1,6 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.core.IMap;
+import com.hazelcast.map.IMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;

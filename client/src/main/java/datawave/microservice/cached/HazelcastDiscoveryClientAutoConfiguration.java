@@ -35,7 +35,6 @@ public class HazelcastDiscoveryClientAutoConfiguration extends HazelcastBaseClie
         if (!clientProperties.isSkipDiscoveryConfiguration()) {
             // Set up Consul discovery of cluster members.
             clientConfig.setProperty("hazelcast.discovery.enabled", Boolean.TRUE.toString());
-            clientConfig.getNetworkConfig().setConnectionAttemptLimit(120);
             clientConfig.getNetworkConfig().getDiscoveryConfig().setDiscoveryServiceProvider(discoveryServiceProvider);
         }
         
