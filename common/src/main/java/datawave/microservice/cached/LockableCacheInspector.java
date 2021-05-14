@@ -92,4 +92,15 @@ public interface LockableCacheInspector extends CacheInspector {
      *            the key to unlock
      */
     void forceUnlock(String cacheName, String key);
+    
+    /**
+     * Checks the lock for the specified cache and key.
+     *
+     * @param cacheName
+     *            the name of the cache
+     * @param key
+     *            the key to unlock
+     * @return If the lock is acquired then returns true, else returns false.
+     */
+    boolean isLocked(String cacheName, String key);
 }

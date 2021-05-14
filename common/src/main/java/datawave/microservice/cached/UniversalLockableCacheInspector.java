@@ -78,4 +78,9 @@ public class UniversalLockableCacheInspector implements CacheInspector, Lockable
             lockMap.put(cacheName, new ReentrantLock(true));
         return lockMap.get(cacheName);
     }
+    
+    @Override
+    public boolean isLocked(String cacheName, String key) {
+        return getLock(cacheName).isLocked();
+    }
 }

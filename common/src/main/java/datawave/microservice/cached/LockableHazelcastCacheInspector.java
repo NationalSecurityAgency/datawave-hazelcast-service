@@ -87,4 +87,14 @@ public class LockableHazelcastCacheInspector extends HazelcastCacheInspector imp
             imap.forceUnlock(key);
         }
     }
+    
+    public boolean isLocked(String cacheName, String key) {
+        Cache cache = cacheManager.getCache(cacheName);
+        if (cache.getNativeCache() instanceof IMap) {
+            @SuppressWarnings("unchecked")
+            IMap<Object,Object> imap = (IMap<Object,Object>) cache.getNativeCache();
+            return imap.isLocked(key);
+        }
+        throw new UnsupportedOperationException("Unable to determine if cache key is locked.");
+    }
 }
