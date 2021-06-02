@@ -39,48 +39,53 @@ public class UniversalLockableCacheInspector implements CacheInspector, Lockable
     
     @Override
     public void lock(String cacheName, String key) {
-        getLock(cacheName).lock();
+        getLock(cacheName, key).lock();
     }
     
     @Override
     public void lock(String cacheName, String key, long leaseTime, TimeUnit leaseTimeUnit) {
-        getLock(cacheName).lock();
+        getLock(cacheName, key).lock();
     }
     
     @Override
     public boolean tryLock(String cacheName, String key) {
-        return getLock(cacheName).tryLock();
+        return getLock(cacheName, key).tryLock();
     }
     
     @Override
     public boolean tryLock(String cacheName, String key, long waitTime, TimeUnit waitTimeUnit) throws InterruptedException {
-        return getLock(cacheName).tryLock(waitTime, waitTimeUnit);
+        return getLock(cacheName, key).tryLock(waitTime, waitTimeUnit);
     }
     
     @Override
     public boolean tryLock(String cacheName, String key, long waitTime, TimeUnit waitTimeUnit, long leaseTime, TimeUnit leaseTimeUnit)
                     throws InterruptedException {
-        return getLock(cacheName).tryLock(waitTime, waitTimeUnit);
+        return getLock(cacheName, key).tryLock(waitTime, waitTimeUnit);
     }
     
     @Override
     public void unlock(String cacheName, String key) {
-        getLock(cacheName).unlock();
+        getLock(cacheName, key).unlock();
     }
     
     @Override
     public void forceUnlock(String cacheName, String key) {
-        getLock(cacheName).unlock();
+        getLock(cacheName, key).unlock();
     }
     
-    private ReentrantLock getLock(String cacheName) {
-        if (lockMap.get(cacheName) == null)
-            lockMap.put(cacheName, new ReentrantLock(true));
-        return lockMap.get(cacheName);
+    private ReentrantLock getLock(String cacheName, String key) {
+        String lockkey = getKey(cacheName, key);
+        if (lockMap.get(lockkey) == null)
+            lockMap.put(lockkey, new ReentrantLock(true));
+        return lockMap.get(lockkey);
+    }
+
+    private String getKey(String cacheName, String key) {
+        return cacheName + " -> " + key;
     }
     
     @Override
     public boolean isLocked(String cacheName, String key) {
-        return getLock(cacheName).isLocked();
+        return getLock(cacheName, key).isLocked();
     }
 }
