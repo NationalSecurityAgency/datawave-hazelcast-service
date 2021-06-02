@@ -79,7 +79,7 @@ public class UniversalLockableCacheInspector implements CacheInspector, Lockable
             lockMap.put(lockkey, new ReentrantLock(true));
         return lockMap.get(lockkey);
     }
-
+    
     private String getKey(String cacheName, String key) {
         return cacheName + " -> " + key;
     }
