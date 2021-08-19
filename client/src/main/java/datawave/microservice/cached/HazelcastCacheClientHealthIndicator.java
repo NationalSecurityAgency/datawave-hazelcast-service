@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
+@ConditionalOnProperty(name = "hazelcast.client.enabled", matchIfMissing = true)
 public class HazelcastCacheClientHealthIndicator extends AbstractHealthIndicator {
     private static Logger log = LoggerFactory.getLogger(HazelcastCacheClientHealthIndicator.class);
     private final Random r = new Random(System.currentTimeMillis());
