@@ -2,6 +2,7 @@ package datawave.microservice.cached;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 public class CachingConfigurer extends CachingConfigurerSupport {
     
     @Bean
+    @ConditionalOnMissingBean
     @Override
     public CacheErrorHandler errorHandler() {
         return new ClearOnGetFailureHandler();
