@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 
@@ -94,6 +95,7 @@ public class HazelcastCacheInspectorTest {
         @Bean
         public HazelcastInstance hazelcastInstance() {
             Config config = new Config();
+            config.setClusterName(UUID.randomUUID().toString());
             return Hazelcast.newHazelcastInstance(config);
         }
     }
