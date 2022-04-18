@@ -18,7 +18,7 @@
     </scm>
     <properties>
         <start-class>datawave.microservice.cached.server.HazelcastService</start-class>
-        <version.hazelcast-kubernetes>2.2.3</version.hazelcast-kubernetes>
+        <version.hazelcast-kubernetes>1.4</version.hazelcast-kubernetes>
         <version.microservice.hazelcast-common>1.8-SNAPSHOT</version.microservice.hazelcast-common>
         <version.zookeeper>3.4.14</version.zookeeper>
     </properties>
