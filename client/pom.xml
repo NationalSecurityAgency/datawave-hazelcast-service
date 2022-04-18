@@ -17,7 +17,7 @@
         <url>https://github.com/NationalSecurityAgency/datawave-hazelcast-service</url>
     </scm>
     <properties>
-        <version.hazelcast-kubernetes>2.0</version.hazelcast-kubernetes>
+        <version.hazelcast-kubernetes>1.4</version.hazelcast-kubernetes>
         <version.microservice.hazelcast>2.0.1-SNAPSHOT</version.microservice.hazelcast>
     </properties>
     <dependencyManagement>
