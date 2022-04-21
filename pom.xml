@@ -8,7 +8,7 @@
         <relativePath />
     </parent>
     <artifactId>hazelcast-service-parent</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <version>1.8-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>https://code.nsa.gov/datawave-hazelcast-service</url>
     <modules>
