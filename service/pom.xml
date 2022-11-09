@@ -21,6 +21,7 @@
         <start-class>datawave.microservice.cached.server.HazelcastService</start-class>
         <version.hazelcast-kubernetes>2.0</version.hazelcast-kubernetes>
         <version.microservice.hazelcast-common>2.0.1-SNAPSHOT</version.microservice.hazelcast-common>
+        <version.zookeeper>3.4.14</version.zookeeper>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -33,6 +34,11 @@
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>hazelcast-common</artifactId>
                 <version>${version.microservice.hazelcast-common}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${version.zookeeper}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
