@@ -3,17 +3,14 @@ package datawave.microservice.cached;
 import com.hazelcast.config.Config;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import datawave.autoconfigure.DatawaveCacheAutoConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.autoconfigure.cache.CacheType;
-import org.springframework.boot.test.autoconfigure.core.AutoConfigureCache;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.DirtiesContext;
@@ -22,27 +19,31 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(SpringExtension.class)
 @DirtiesContext
-@AutoConfigureCache(cacheProvider = CacheType.HAZELCAST)
-@ImportAutoConfiguration(DatawaveCacheAutoConfiguration.class)
+@EnableCaching
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = HazelcastCacheInspectorTest.InspectorConfiguration.class)
 public class HazelcastCacheInspectorTest {
     private static final String CACHE_NAME = "cacheinspector-test";
     
     @Autowired
-    private CacheInspector cacheInspector;
+    private CacheManager cacheManager;
     
     @Autowired
-    private CacheManager cacheManager;
+    private Function<CacheManager,CacheInspector> cacheInspectorFactory;
+    
+    private CacheInspector cacheInspector;
     
     private Cache cache;
     
     @BeforeEach
     public void setup() {
+        cacheInspector = cacheInspectorFactory.apply(cacheManager);
+        
         cache = cacheManager.getCache(CACHE_NAME);
         cache.clear();
         cache.put("key1", "value1");
