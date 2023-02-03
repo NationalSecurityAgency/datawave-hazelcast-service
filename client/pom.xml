@@ -8,16 +8,17 @@
         <relativePath />
     </parent>
     <artifactId>hazelcast-client</artifactId>
-    <version>1.9-SNAPSHOT</version>
+    <version>1.9</version>
     <url>https://code.nsa.gov/datawave-hazelcast-service</url>
     <scm>
         <connection>scm:git:https://github.com/NationalSecurityAgency/datawave-hazelcast-service.git</connection>
         <developerConnection>scm:git:git@github.com:NationalSecurityAgency/datawave-hazelcast-service.git</developerConnection>
+        <tag>1.9</tag>
         <url>https://github.com/NationalSecurityAgency/datawave-hazelcast-service</url>
     </scm>
     <properties>
         <version.hazelcast-kubernetes>1.4</version.hazelcast-kubernetes>
-        <version.microservice.hazelcast>1.9-SNAPSHOT</version.microservice.hazelcast>
+        <version.microservice.hazelcast>1.9</version.microservice.hazelcast>
     </properties>
     <dependencyManagement>
         <dependencies>

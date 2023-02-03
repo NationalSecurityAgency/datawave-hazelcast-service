@@ -8,7 +8,7 @@
         <relativePath />
     </parent>
     <artifactId>hazelcast-service-parent</artifactId>
-    <version>1.9-SNAPSHOT</version>
+    <version>1.9</version>
     <packaging>pom</packaging>
     <url>https://code.nsa.gov/datawave-hazelcast-service</url>
     <modules>
@@ -19,6 +19,7 @@
     <scm>
         <connection>scm:git:https://github.com/NationalSecurityAgency/datawave-hazelcast-service.git</connection>
         <developerConnection>scm:git:git@github.com:NationalSecurityAgency/datawave-hazelcast-service.git</developerConnection>
+        <tag>1.9</tag>
         <url>https://github.com/NationalSecurityAgency/datawave-hazelcast-service</url>
     </scm>
     <repositories>
