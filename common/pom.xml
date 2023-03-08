@@ -17,7 +17,7 @@
         <url>https://github.com/NationalSecurityAgency/datawave-hazelcast-service</url>
     </scm>
     <properties>
-        <version.microservice.starter>2.0.2</version.microservice.starter>
+        <version.microservice.starter>2.1.1</version.microservice.starter>
     </properties>
     <dependencies>
         <dependency>
