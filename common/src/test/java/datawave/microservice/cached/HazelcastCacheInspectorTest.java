@@ -97,6 +97,8 @@ public class HazelcastCacheInspectorTest {
         public HazelcastInstance hazelcastInstance() {
             Config config = new Config();
             config.setClusterName(UUID.randomUUID().toString());
+            config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(false);
+            config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
             return Hazelcast.newHazelcastInstance(config);
         }
     }
