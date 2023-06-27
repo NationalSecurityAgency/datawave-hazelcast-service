@@ -1,12 +1,12 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.client.config.ClientConnectionStrategyConfig;
-import com.hazelcast.client.config.XmlClientConfigBuilder;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.ByteArrayInputStream;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.ClientConnectionStrategyConfig;
+import com.hazelcast.client.config.XmlClientConfigBuilder;
 
 public class HazelcastBaseClientConfiguration {
     public ClientConfig createClientConfig(HazelcastClientProperties clientProperties) {

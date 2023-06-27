@@ -1,14 +1,15 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.spring.cache.HazelcastCacheManager;
+import java.util.List;
+import java.util.function.Function;
+
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-import java.util.function.Function;
+import com.hazelcast.spring.cache.HazelcastCacheManager;
 
 /**
  * Provides an instance of a {@link CacheInspector}.

@@ -1,15 +1,16 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.map.IMap;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import com.hazelcast.map.IMap;
 
 /**
  * A {@link CacheInspector} that is capable of inspecting a {@link com.hazelcast.spring.cache.HazelcastCache}.

@@ -1,10 +1,11 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.map.IMap;
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
-import java.util.concurrent.TimeUnit;
+import com.hazelcast.map.IMap;
 
 /**
  * This cache inspector extends the default HazelcastCacheInspector, and adds a locking mechanism.

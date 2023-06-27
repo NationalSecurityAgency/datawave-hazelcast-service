@@ -1,6 +1,12 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.map.IMap;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +17,7 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Random;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import com.hazelcast.map.IMap;
 
 @Component
 @ConditionalOnProperty(name = "hazelcast.client.enabled", matchIfMissing = true)

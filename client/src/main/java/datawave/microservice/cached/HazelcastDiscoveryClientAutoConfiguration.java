@@ -1,9 +1,5 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.spi.discovery.integration.DiscoveryServiceProvider;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -15,6 +11,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+
+import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.spi.discovery.integration.DiscoveryServiceProvider;
 
 /**
  * Auto-configuration necessary to set up a Hazelcast client that connects to a Hazelcast cluster that has been discovered using Consul.

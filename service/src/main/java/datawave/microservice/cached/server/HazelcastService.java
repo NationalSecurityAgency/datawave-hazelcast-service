@@ -1,5 +1,10 @@
 package datawave.microservice.cached.server;
 
+import static com.hazelcast.internal.util.EmptyStatement.ignore;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,11 +12,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.commons.util.InetUtils;
 import org.springframework.cloud.commons.util.InetUtilsProperties;
-
-import java.io.IOException;
-import java.net.ServerSocket;
-
-import static com.hazelcast.internal.util.EmptyStatement.ignore;
 
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "datawave.microservice", exclude = {SecurityAutoConfiguration.class, ManagementWebSecurityAutoConfiguration.class})

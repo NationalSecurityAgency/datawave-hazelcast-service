@@ -1,19 +1,20 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.cluster.Address;
-import com.hazelcast.spi.discovery.DiscoveryNode;
-import com.hazelcast.spi.discovery.SimpleDiscoveryNode;
-import com.hazelcast.spi.discovery.integration.DiscoveryService;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.hazelcast.cluster.Address;
+import com.hazelcast.spi.discovery.DiscoveryNode;
+import com.hazelcast.spi.discovery.SimpleDiscoveryNode;
+import com.hazelcast.spi.discovery.integration.DiscoveryService;
 
 /**
  * A {@link DiscoveryService} for Hazelcast clients located in the spring boot discovery service. We expect that, when registering, the service will include

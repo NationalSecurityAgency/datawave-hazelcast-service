@@ -1,11 +1,5 @@
 package datawave.microservice.cached;
 
-import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.config.DiscoveryStrategyConfig;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategyFactory;
-import com.hazelcast.kubernetes.KubernetesProperties;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -16,6 +10,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+
+import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.config.DiscoveryStrategyConfig;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategyFactory;
+import com.hazelcast.kubernetes.KubernetesProperties;
 
 /**
  * Auto-configuration necessary to set up a Hazelcast client that connects to a Hazelcast cluster that has been discovered using Kubernetes.

@@ -1,12 +1,9 @@
 package datawave.microservice.cached.server;
 
-import com.hazelcast.config.Config;
-import com.hazelcast.config.DiscoveryStrategyConfig;
-import com.hazelcast.config.JoinConfig;
-import com.hazelcast.config.XmlConfigBuilder;
-import com.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategyFactory;
-import com.hazelcast.kubernetes.KubernetesProperties;
-import com.hazelcast.spi.discovery.integration.DiscoveryServiceProvider;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+import java.io.ByteArrayInputStream;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -15,9 +12,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import java.io.ByteArrayInputStream;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
+import com.hazelcast.config.Config;
+import com.hazelcast.config.DiscoveryStrategyConfig;
+import com.hazelcast.config.JoinConfig;
+import com.hazelcast.config.XmlConfigBuilder;
+import com.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategyFactory;
+import com.hazelcast.kubernetes.KubernetesProperties;
+import com.hazelcast.spi.discovery.integration.DiscoveryServiceProvider;
 
 /**
  * Defines the configuration we'll use for a Hazelcast cluster member (e.g., a server member).
