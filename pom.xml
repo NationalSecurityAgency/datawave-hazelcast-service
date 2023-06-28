@@ -14,7 +14,6 @@
     <modules>
         <module>common</module>
         <module>client</module>
-        <module>service</module>
     </modules>
     <scm>
         <connection>scm:git:https://github.com/NationalSecurityAgency/datawave-hazelcast-service.git</connection>
@@ -38,4 +37,17 @@
             <url>https://raw.githubusercontent.com/NationalSecurityAgency/datawave/mvn-repo</url>
         </repository>
     </repositories>
+    <profiles>
+        <profile>
+            <id>services</id>
+            <activation>
+                <property>
+                    <name>!skipServices</name>
+                </property>
+            </activation>
+            <modules>
+                <module>service</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
