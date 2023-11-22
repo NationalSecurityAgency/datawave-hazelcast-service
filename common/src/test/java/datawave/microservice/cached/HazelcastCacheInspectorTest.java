@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -35,6 +36,7 @@ public class HazelcastCacheInspectorTest {
     private CacheManager cacheManager;
     
     @Autowired
+    @Qualifier("cacheInspectorFactory")
     private Function<CacheManager,CacheInspector> cacheInspectorFactory;
     
     private CacheInspector cacheInspector;
