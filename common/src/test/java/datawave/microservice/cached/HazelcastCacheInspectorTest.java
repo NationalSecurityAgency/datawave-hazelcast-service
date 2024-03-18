@@ -1,6 +1,7 @@
 package datawave.microservice.cached;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +16,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.DirtiesContext;
@@ -24,11 +24,14 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.hazelcast.config.Config;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.spring.cache.HazelcastCacheManager;
+
+import datawave.autoconfigure.DatawaveCacheAutoConfiguration;
 
 @DirtiesContext
-@EnableCaching
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = HazelcastCacheInspectorTest.InspectorConfiguration.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
+                classes = {HazelcastCacheInspectorTest.InspectorConfiguration.class, DatawaveCacheAutoConfiguration.class})
 public class HazelcastCacheInspectorTest {
     private static final String CACHE_NAME = "cacheinspector-test";
     
@@ -55,6 +58,11 @@ public class HazelcastCacheInspectorTest {
         cache.put("key3b", "value3b");
         cache.put("key4", "value4");
         cache.put("key5", "value5");
+    }
+    
+    @Test
+    public void testCacheManagerType() {
+        assertTrue(cacheManager instanceof HazelcastCacheManager);
     }
     
     @Test
