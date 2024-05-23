@@ -3,6 +3,7 @@ package datawave.microservice.cached;
 import java.util.List;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
@@ -18,6 +19,7 @@ import com.hazelcast.spring.cache.HazelcastCacheManager;
 public class CacheInspectorConfiguration {
     
     @Bean
+    @Qualifier("cacheInspectorFactory")
     public Function<CacheManager,CacheInspector> cacheInspectorFactory() {
         return cacheManager -> {
             if (cacheManager instanceof HazelcastCacheManager)
