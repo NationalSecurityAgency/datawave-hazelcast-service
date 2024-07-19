@@ -8,7 +8,7 @@
         <relativePath>../../../microservice-service-parent/pom.xml</relativePath>
     </parent>
     <artifactId>hazelcast-client</artifactId>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>4.0.2-SNAPSHOT</version>
     <url>https://code.nsa.gov/datawave-hazelcast-service</url>
     <scm>
         <connection>scm:git:https://github.com/NationalSecurityAgency/datawave-hazelcast-service.git</connection>
@@ -17,7 +17,7 @@
         <url>https://github.com/NationalSecurityAgency/datawave-hazelcast-service</url>
     </scm>
     <properties>
-        <version.datawave.hazelcast>4.0.0</version.datawave.hazelcast>
+        <version.datawave.hazelcast>4.0.1</version.datawave.hazelcast>
         <version.hazelcast-kubernetes>2.2.3</version.hazelcast-kubernetes>
     </properties>
     <dependencyManagement>
