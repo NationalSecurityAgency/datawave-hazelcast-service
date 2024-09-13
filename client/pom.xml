@@ -17,8 +17,8 @@
         <url>https://github.com/NationalSecurityAgency/datawave-hazelcast-service</url>
     </scm>
     <properties>
+        <version.datawave.hazelcast-common>4.0.2</version.datawave.hazelcast-common>
         <version.hazelcast-kubernetes>2.2.3</version.hazelcast-kubernetes>
-        <version.microservice.hazelcast>4.0.2</version.microservice.hazelcast>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -30,7 +30,7 @@
             <dependency>
                 <groupId>gov.nsa.datawave.microservice</groupId>
                 <artifactId>hazelcast-common</artifactId>
-                <version>${version.microservice.hazelcast}</version>
+                <version>${version.datawave.hazelcast-common}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
